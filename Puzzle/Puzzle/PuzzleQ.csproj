@@ -1,0 +1,125 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\Bee 1.JPG" />
+    <None Remove="Images\Bee 2.JPG" />
+    <None Remove="Images\Bee 3.JPG" />
+    <None Remove="Images\Bee 4.JPG" />
+    <None Remove="Images\Bee 5.JPG" />
+    <None Remove="Images\Bee 6.JPG" />
+    <None Remove="Images\Bee 7.JPG" />
+    <None Remove="Images\Bee 8.JPG" />
+    <None Remove="Images\Bee 9.JPG" />
+    <None Remove="Images\Cherry Blossom 1.jpg" />
+    <None Remove="Images\Cherry Blossom 2.jpg" />
+    <None Remove="Images\Cherry Blossom 3.jpg" />
+    <None Remove="Images\Cherry Blossom 4.jpg" />
+    <None Remove="Images\Cherry Blossom 5.jpg" />
+    <None Remove="Images\Cherry Blossom 6.jpg" />
+    <None Remove="Images\Cherry Blossom 7.jpg" />
+    <None Remove="Images\Cherry Blossom 8.jpg" />
+    <None Remove="Images\Cherry Blossom 9.jpg" />
+    <None Remove="Images\Colorful Design 1.jpg" />
+    <None Remove="Images\Colorful Design 2.jpg" />
+    <None Remove="Images\Colorful Design 3.jpg" />
+    <None Remove="Images\Colorful Design 4.jpg" />
+    <None Remove="Images\Colorful Design 5.jpg" />
+    <None Remove="Images\Colorful Design 6.jpg" />
+    <None Remove="Images\Colorful Design 7.jpg" />
+    <None Remove="Images\Colorful Design 8.jpg" />
+    <None Remove="Images\Colorful Design 9.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\Bee 1.JPG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Bee 2.JPG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Bee 3.JPG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Bee 4.JPG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Bee 5.JPG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Bee 6.JPG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Bee 7.JPG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Bee 8.JPG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Bee 9.JPG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Cherry Blossom 1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Cherry Blossom 2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Cherry Blossom 3.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Cherry Blossom 4.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Cherry Blossom 5.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Cherry Blossom 6.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Cherry Blossom 7.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Cherry Blossom 8.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Cherry Blossom 9.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Colorful Design 1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Colorful Design 2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Colorful Design 3.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Colorful Design 4.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Colorful Design 5.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Colorful Design 6.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Colorful Design 7.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Colorful Design 8.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Colorful Design 9.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
