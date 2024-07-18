@@ -10,9 +10,9 @@ namespace PuzzleQ
     {
         string path = Application.StartupPath + @"\";
 
-        List<String> level1 = new() { @"images\Bee 1.JPG", @"images\Bee 2.JPG", @"images\Bee 3.JPG", @"images\Bee 4.JPG", @"images\Bee 5.JPG", @"images\Bee 6.JPG", @"images\Bee 7.JPG", @"images\Bee 8.JPG", @"images\Bee 9.JPG" };
-        List<String> level2 = new() { @"images\Cherry Blossom 1.jpg", @"images\Cherry Blossom 2.jpg", @"images\Cherry Blossom 3.jpg", @"images\Cherry Blossom 4.jpg", @"images\Cherry Blossom 5.jpg", @"images\Cherry Blossom 6.jpg", @"images\Cherry Blossom 7.jpg", @"images\Cherry Blossom 8.jpg", @"images\Cherry Blossom 9.jpg" };
-        List<String> level3 = new() { @"images\Colorful Design 1.jpg", @"images\Colorful Design 2.jpg", @"images\Colorful Design 3.jpg", @"images\Colorful Design 4.jpg", @"images\Colorful Design 5.jpg", @"images\Colorful Design 6.jpg", @"images\Colorful Design 7.jpg", @"images\Colorful Design 8.jpg", @"images\Colorful Design 9.jpg" };
+        List<String> level1 = new() { @"images\Bee 1.JPG", @"images\Bee 2.JPG", @"images\Bee 3.JPG", @"images\Bee 4.JPG", @"images\Bee 5.JPG", @"images\Bee 6.JPG", @"images\Bee 7.JPG", @"images\Bee 8.JPG" };
+        List<String> level2 = new() { @"images\Cherry Blossom 1.jpg", @"images\Cherry Blossom 2.jpg", @"images\Cherry Blossom 3.jpg", @"images\Cherry Blossom 4.jpg", @"images\Cherry Blossom 5.jpg", @"images\Cherry Blossom 6.jpg", @"images\Cherry Blossom 7.jpg", @"images\Cherry Blossom 8.jpg" };
+        List<String> level3 = new() { @"images\Colorful Design 1.jpg", @"images\Colorful Design 2.jpg", @"images\Colorful Design 3.jpg", @"images\Colorful Design 4.jpg", @"images\Colorful Design 5.jpg", @"images\Colorful Design 6.jpg", @"images\Colorful Design 7.jpg", @"images\Colorful Design 8.jpg" };
 
         List<PictureBox> CanMoveRightResults;
         List<PictureBox> CanMoveRightSource;
