@@ -10,9 +10,9 @@ namespace PuzzleQ
     {
         string path = Application.StartupPath + @"\";
 
-        List<String> level1 = new() { @"images\Bee 1.JPG", @"images\Bee 2.JPG", @"images\Bee 3.JPG", @"images\Bee 4.JPG", @"images\Bee 5.JPG", @"images\Bee 6.JPG", @"images\Bee 7.JPG", @"images\Bee 8.JPG" };
-        List<String> level2 = new() { @"images\Cherry Blossom 1.jpg", @"images\Cherry Blossom 2.jpg", @"images\Cherry Blossom 3.jpg", @"images\Cherry Blossom 4.jpg", @"images\Cherry Blossom 5.jpg", @"images\Cherry Blossom 6.jpg", @"images\Cherry Blossom 7.jpg", @"images\Cherry Blossom 8.jpg" };
-        List<String> level3 = new() { @"images\Colorful Design 1.jpg", @"images\Colorful Design 2.jpg", @"images\Colorful Design 3.jpg", @"images\Colorful Design 4.jpg", @"images\Colorful Design 5.jpg", @"images\Colorful Design 6.jpg", @"images\Colorful Design 7.jpg", @"images\Colorful Design 8.jpg" };
+        List<String> level1 = new() { @"images\Bee 1.JPG", @"images\Bee 2.JPG", @"images\Bee 3.JPG", @"images\Bee 4.JPG", @"images\Bee 5.JPG", @"images\Bee 6.JPG", @"images\Bee 7.JPG", @"images\Bee 8.JPG", @"images\Bee 9.JPG" };
+        List<String> level2 = new() { @"images\Cherry Blossom 1.jpg", @"images\Cherry Blossom 2.jpg", @"images\Cherry Blossom 3.jpg", @"images\Cherry Blossom 4.jpg", @"images\Cherry Blossom 5.jpg", @"images\Cherry Blossom 6.jpg", @"images\Cherry Blossom 7.jpg", @"images\Cherry Blossom 8.jpg", @"images\Cherry Blossom 9.jpg" };
+        List<String> level3 = new() { @"images\Colorful Design 1.jpg", @"images\Colorful Design 2.jpg", @"images\Colorful Design 3.jpg", @"images\Colorful Design 4.jpg", @"images\Colorful Design 5.jpg", @"images\Colorful Design 6.jpg", @"images\Colorful Design 7.jpg", @"images\Colorful Design 8.jpg", @"images\Colorful Design 9.jpg" };
 
         List<PictureBox> CanMoveRightResults;
         List<PictureBox> CanMoveRightSource;
@@ -22,10 +22,9 @@ namespace PuzzleQ
         List<PictureBox> CanMoveUpSource;
         List<PictureBox> CanMoveDownResults;
         List<PictureBox> CanMoveDownSource;
-
         List<Button> MovementButtons;
-
-        List<PictureBox> All;
+        List<PictureBox> FirstHalf;
+        List<PictureBox> SecondHalf;
 
         private enum LevelEnum { Level1, Level2, Level3 };
         LevelEnum currentlevel = LevelEnum.Level1;
@@ -50,7 +49,8 @@ namespace PuzzleQ
             CanMoveDownResults = new() { pictureBox4, pictureBox7, pictureBox5, pictureBox8, pictureBox6, pictureBox9 };
             CanMoveDownSource = new() { pictureBox1, pictureBox4, pictureBox2, pictureBox5, pictureBox3, pictureBox6 };
             MovementButtons = new() { btnDown, btnLeft, btnRight, btnUp };
-            All = new() { pictureBox1, pictureBox2, pictureBox3, pictureBox4, pictureBox5, pictureBox6, pictureBox7, pictureBox8 };
+            FirstHalf = new() { pictureBox1, pictureBox2, pictureBox3, pictureBox4 };
+            SecondHalf = new() { pictureBox5, pictureBox6, pictureBox7, pictureBox8 };
         }
 
         private void SettingsBasedOnLevelAndGameStatus()
@@ -130,29 +130,18 @@ namespace PuzzleQ
             {
                 if (currentlevel == LevelEnum.Level3)
                 {
-                    lblMessage.Text = "YOU WON! CONGRATULATIONS! YOU HAVE SUCCESSFULLY COMPLETED ALL THREE LEVELS! Click Start to begin from level 1.";
+                    lblMessage.Text = "YOU WON! CONGRATULATIONS! YOU HAVE SUCCESSFULLY COMPLETED ALL THREE LEVELS!" + Environment.NewLine + "Click Start to begin from level 1.";
                 }
                 else
                 {
-                    lblMessage.Text = "YOU WON! HOORAY! Click Start to proceed to the next level.";
+                    lblMessage.Text = "YOU WON! HOORAY!" + Environment.NewLine + "Click Start to proceed to the next level.";
                 }
             }
         }
 
-        private string GetPicture(List<String> lst)
+        private void GetCorrectLayout()
         {
-            Random rnd = new();
-            int countofpics = lst.Count();
-            int n = rnd.Next(0, countofpics);
-            string picture = lst[n];
-            return picture;
-        }
-
-        private List<String> GetCopyList()
-        {
-            int n = 0;
             List<String> list = new();
-            List<String> copy = new();
             switch (currentlevel)
             {
                 case LevelEnum.Level1:
@@ -165,30 +154,51 @@ namespace PuzzleQ
                     list = level3;
                     break;
             }
-            for (int i = 1; i <= 8; i++)
-            {
-                if (i > 1)
-                {
-                    n = n + 1;
-                }
-                copy.Add(list[n]);
-            }
-            return copy;
+            pictureBox1.ImageLocation = path + list[0];
+            pictureBox2.ImageLocation = path + list[1];
+            pictureBox3.ImageLocation = path + list[2];
+            pictureBox4.ImageLocation = path + list[3];
+            pictureBox5.ImageLocation = path + list[4];
+            pictureBox6.ImageLocation = path + list[5];
+            pictureBox7.ImageLocation = path + list[6];
+            pictureBox8.ImageLocation = path + list[7];
+            pictureBox9.ImageLocation = null;
         }
 
-        private void GetRandomPictureInAllBoxes()
+        private void Swap()
         {
-            int n = 0;
-            List<String> copy = GetCopyList();
-            for (int i = 1; i <= 8; i++)
+            List<String> list = new();
+            switch (currentlevel)
             {
-                if (i > 1)
-                {
-                    n = n + 1;
-                }
-                string picture = GetPicture(copy);
-                All[n].ImageLocation = path + picture;
-                copy.Remove(picture);
+                case LevelEnum.Level1:
+                    list = level1;
+                    break;
+                case LevelEnum.Level2:
+                    list = level2;
+                    break;
+                case LevelEnum.Level3:
+                    list = level3;
+                    break;
+            }
+            Random rnd = new();
+            int n1 = rnd.Next(0, 4);
+            int n2 = rnd.Next(0, 4);
+            PictureBox pb1 = FirstHalf[n1];
+            PictureBox pb2 = SecondHalf[n2];
+            string pb1imagelocation = pb1.ImageLocation;
+            pb1.ImageLocation = pb2.ImageLocation;
+            pb2.ImageLocation = pb1imagelocation;
+        }
+
+        private void Shuffle()
+        {
+            GetCorrectLayout();
+            Random rnd = new();
+            int n = rnd.Next(5, 10);
+            int even = n * 2;
+            for (int i =0; i < even; i++)
+            {
+                Swap();
             }
         }
 
@@ -327,7 +337,7 @@ namespace PuzzleQ
             pictureBox9.ImageLocation = null;
             SettingsBasedOnLevelAndGameStatus();
             SetMessageLabelAndColors();
-            GetRandomPictureInAllBoxes();
+            Shuffle();
             MovementButtons.ForEach(b => b.Enabled = true);
         }
     }
