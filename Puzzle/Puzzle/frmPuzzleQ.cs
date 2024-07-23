@@ -22,9 +22,8 @@ namespace PuzzleQ
         List<PictureBox> CanMoveUpSource;
         List<PictureBox> CanMoveDownResults;
         List<PictureBox> CanMoveDownSource;
+        
         List<Button> MovementButtons;
-        List<PictureBox> FirstHalf;
-        List<PictureBox> SecondHalf;
 
         private enum LevelEnum { Level1, Level2, Level3 };
         LevelEnum currentlevel = LevelEnum.Level1;
@@ -49,8 +48,6 @@ namespace PuzzleQ
             CanMoveDownResults = new() { pictureBox4, pictureBox7, pictureBox5, pictureBox8, pictureBox6, pictureBox9 };
             CanMoveDownSource = new() { pictureBox1, pictureBox4, pictureBox2, pictureBox5, pictureBox3, pictureBox6 };
             MovementButtons = new() { btnDown, btnLeft, btnRight, btnUp };
-            FirstHalf = new() { pictureBox1, pictureBox2, pictureBox3, pictureBox4 };
-            SecondHalf = new() { pictureBox5, pictureBox6, pictureBox7, pictureBox8 };
         }
 
         private void SettingsBasedOnLevelAndGameStatus()
@@ -165,41 +162,83 @@ namespace PuzzleQ
             pictureBox9.ImageLocation = null;
         }
 
-        private void Swap()
+        private void TakeRandomMove()
         {
-            List<String> list = new();
-            switch (currentlevel)
+            Random rnd = new();
+            int n = rnd.Next(1, 5);
+            switch (n)
             {
-                case LevelEnum.Level1:
-                    list = level1;
+                case 1:
+                    MoveRight();
                     break;
-                case LevelEnum.Level2:
-                    list = level2;
+                case 2:
+                    MoveLeft();
                     break;
-                case LevelEnum.Level3:
-                    list = level3;
+                case 3:
+                    MoveUp();
+                    break;
+                case 4:
+                    MoveDown();
                     break;
             }
-            Random rnd = new();
-            int n1 = rnd.Next(0, 4);
-            int n2 = rnd.Next(0, 4);
-            PictureBox pb1 = FirstHalf[n1];
-            PictureBox pb2 = SecondHalf[n2];
-            string pb1imagelocation = pb1.ImageLocation;
-            pb1.ImageLocation = pb2.ImageLocation;
-            pb2.ImageLocation = pb1imagelocation;
+        }
+
+        private void GetPB9Blank()
+        {
+            if (pictureBox1.ImageLocation == null)
+            {
+                MoveUp();
+                MoveUp();
+                MoveLeft();
+                MoveLeft();
+            }
+            else if (pictureBox2.ImageLocation == null)
+            {
+                MoveUp();
+                MoveUp();
+                MoveLeft();
+            }
+            else if (pictureBox3.ImageLocation == null)
+            {
+                MoveUp();
+                MoveUp();
+            }
+            else if (pictureBox4.ImageLocation == null)
+            {
+                MoveUp();
+                MoveLeft();
+                MoveLeft();
+            }
+            else if (pictureBox5.ImageLocation == null)
+            {
+                MoveUp();
+                MoveLeft();
+            }
+            else if (pictureBox6.ImageLocation == null)
+            {
+                MoveUp();
+            }
+            else if (pictureBox7.ImageLocation == null)
+            {
+                MoveLeft();
+                MoveLeft();
+            }
+            else if (pictureBox8.ImageLocation == null)
+            {
+                MoveLeft();
+            }
         }
 
         private void Shuffle()
         {
             GetCorrectLayout();
             Random rnd = new();
-            int n = rnd.Next(5, 10);
-            int even = n * 2;
-            for (int i =0; i < even; i++)
+            int n = rnd.Next(250, 500);
+            for (int i = 0; i < n; i++)
             {
-                Swap();
+                TakeRandomMove();
             }
+            GetPB9Blank();
         }
 
         private void MovePhoto(PictureBox pbresults, List<PictureBox> listresults, List<PictureBox> listsource)
@@ -334,7 +373,6 @@ namespace PuzzleQ
 
         private void ButtonStart_Click(object? sender, EventArgs e)
         {
-            pictureBox9.ImageLocation = null;
             SettingsBasedOnLevelAndGameStatus();
             SetMessageLabelAndColors();
             Shuffle();
