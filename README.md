@@ -1,6 +1,6 @@
 # PuzzleQ
 
-## Qverview
+## Overview
 This repo is for the software implementation of the game of PuzzleQ. A description of the game is provided below.
 
 ## The Game
