@@ -68,7 +68,7 @@
             // 
             // tblMain
             // 
-            tblMain.BackColor = Color.LemonChiffon;
+            tblMain.BackColor = SystemColors.ControlLightLight;
             tblMain.ColumnCount = 1;
             tblMain.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tblMain.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
@@ -98,6 +98,7 @@
             tblControls.Controls.Add(lblMessage, 0, 0);
             tblControls.Controls.Add(lblScoreNumber, 4, 1);
             tblControls.Dock = DockStyle.Fill;
+            tblControls.ForeColor = SystemColors.ControlLightLight;
             tblControls.Location = new Point(3, 3);
             tblControls.Name = "tblControls";
             tblControls.RowCount = 2;
@@ -108,14 +109,16 @@
             // 
             // btnStart
             // 
+            btnStart.BackColor = SystemColors.ControlLightLight;
             btnStart.Dock = DockStyle.Fill;
             btnStart.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnStart.ForeColor = SystemColors.ControlLightLight;
             btnStart.Location = new Point(3, 55);
             btnStart.Name = "btnStart";
             btnStart.Size = new Size(113, 51);
             btnStart.TabIndex = 0;
             btnStart.Text = "Start";
-            btnStart.UseVisualStyleBackColor = true;
+            btnStart.UseVisualStyleBackColor = false;
             // 
             // tblMovement
             // 
@@ -138,57 +141,66 @@
             // 
             // btnUp
             // 
+            btnUp.BackColor = SystemColors.ControlLightLight;
             btnUp.Dock = DockStyle.Fill;
             btnUp.Enabled = false;
             btnUp.Font = new Font("Wingdings", 18F, FontStyle.Regular, GraphicsUnit.Point, 2);
+            btnUp.ForeColor = SystemColors.ControlLightLight;
             btnUp.Location = new Point(3, 3);
             btnUp.Name = "btnUp";
             btnUp.Size = new Size(84, 45);
             btnUp.TabIndex = 0;
             btnUp.Text = "";
-            btnUp.UseVisualStyleBackColor = true;
+            btnUp.UseVisualStyleBackColor = false;
             // 
             // btnDown
             // 
+            btnDown.BackColor = SystemColors.ControlLightLight;
             btnDown.Dock = DockStyle.Fill;
             btnDown.Enabled = false;
             btnDown.Font = new Font("Wingdings", 18F, FontStyle.Regular, GraphicsUnit.Point, 2);
+            btnDown.ForeColor = SystemColors.ControlLightLight;
             btnDown.Location = new Point(93, 3);
             btnDown.Name = "btnDown";
             btnDown.Size = new Size(84, 45);
             btnDown.TabIndex = 1;
             btnDown.Text = "";
-            btnDown.UseVisualStyleBackColor = true;
+            btnDown.UseVisualStyleBackColor = false;
             // 
             // btnLeft
             // 
+            btnLeft.BackColor = SystemColors.ControlLightLight;
             btnLeft.Dock = DockStyle.Fill;
             btnLeft.Enabled = false;
             btnLeft.Font = new Font("Wingdings", 18F, FontStyle.Regular, GraphicsUnit.Point, 2);
+            btnLeft.ForeColor = SystemColors.ControlLightLight;
             btnLeft.Location = new Point(183, 3);
             btnLeft.Name = "btnLeft";
             btnLeft.Size = new Size(84, 45);
             btnLeft.TabIndex = 2;
             btnLeft.Text = "";
-            btnLeft.UseVisualStyleBackColor = true;
+            btnLeft.UseVisualStyleBackColor = false;
             // 
             // btnRight
             // 
+            btnRight.BackColor = SystemColors.ControlLightLight;
             btnRight.Dock = DockStyle.Fill;
             btnRight.Enabled = false;
             btnRight.Font = new Font("Wingdings", 18F, FontStyle.Regular, GraphicsUnit.Point, 2);
+            btnRight.ForeColor = SystemColors.ControlLightLight;
             btnRight.Location = new Point(273, 3);
             btnRight.Name = "btnRight";
             btnRight.Size = new Size(87, 45);
             btnRight.TabIndex = 3;
             btnRight.Text = "";
-            btnRight.UseVisualStyleBackColor = true;
+            btnRight.UseVisualStyleBackColor = false;
             // 
             // lblCurrentLevel
             // 
             lblCurrentLevel.AutoSize = true;
             lblCurrentLevel.Dock = DockStyle.Fill;
             lblCurrentLevel.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCurrentLevel.ForeColor = SystemColors.ControlLightLight;
             lblCurrentLevel.Location = new Point(491, 52);
             lblCurrentLevel.Name = "lblCurrentLevel";
             lblCurrentLevel.Size = new Size(170, 57);
@@ -209,11 +221,11 @@
             // lblMessage
             // 
             lblMessage.AutoSize = true;
-            lblMessage.BackColor = Color.White;
+            lblMessage.BackColor = SystemColors.ControlLightLight;
             tblControls.SetColumnSpan(lblMessage, 5);
             lblMessage.Dock = DockStyle.Fill;
             lblMessage.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblMessage.ForeColor = Color.Gold;
+            lblMessage.ForeColor = SystemColors.ControlLightLight;
             lblMessage.Location = new Point(3, 0);
             lblMessage.Name = "lblMessage";
             lblMessage.Size = new Size(954, 52);

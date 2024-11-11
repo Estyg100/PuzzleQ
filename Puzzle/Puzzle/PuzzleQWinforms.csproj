@@ -9,117 +9,121 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\Bee 1.JPG" />
-    <None Remove="Images\Bee 2.JPG" />
-    <None Remove="Images\Bee 3.JPG" />
-    <None Remove="Images\Bee 4.JPG" />
-    <None Remove="Images\Bee 5.JPG" />
-    <None Remove="Images\Bee 6.JPG" />
-    <None Remove="Images\Bee 7.JPG" />
-    <None Remove="Images\Bee 8.JPG" />
-    <None Remove="Images\Bee 9.JPG" />
-    <None Remove="Images\Cherry Blossom 1.jpg" />
-    <None Remove="Images\Cherry Blossom 2.jpg" />
-    <None Remove="Images\Cherry Blossom 3.jpg" />
-    <None Remove="Images\Cherry Blossom 4.jpg" />
-    <None Remove="Images\Cherry Blossom 5.jpg" />
-    <None Remove="Images\Cherry Blossom 6.jpg" />
-    <None Remove="Images\Cherry Blossom 7.jpg" />
-    <None Remove="Images\Cherry Blossom 8.jpg" />
-    <None Remove="Images\Cherry Blossom 9.jpg" />
-    <None Remove="Images\Colorful Design 1.jpg" />
-    <None Remove="Images\Colorful Design 2.jpg" />
-    <None Remove="Images\Colorful Design 3.jpg" />
-    <None Remove="Images\Colorful Design 4.jpg" />
-    <None Remove="Images\Colorful Design 5.jpg" />
-    <None Remove="Images\Colorful Design 6.jpg" />
-    <None Remove="Images\Colorful Design 7.jpg" />
-    <None Remove="Images\Colorful Design 8.jpg" />
-    <None Remove="Images\Colorful Design 9.jpg" />
+    <None Remove="Images\bee1.JPG" />
+    <None Remove="Images\bee2.JPG" />
+    <None Remove="Images\bee3.jpg" />
+    <None Remove="Images\bee4.jpg" />
+    <None Remove="Images\bee5.jpg" />
+    <None Remove="Images\bee6.jpg" />
+    <None Remove="Images\bee7.jpg" />
+    <None Remove="Images\bee8.jpg" />
+    <None Remove="Images\bee9.jpg" />
+    <None Remove="Images\cherryblossom1.jpg" />
+    <None Remove="Images\cherryblossom2.jpg" />
+    <None Remove="Images\cherryblossom3.jpg" />
+    <None Remove="Images\cherryblossom4.jpg" />
+    <None Remove="Images\cherryblossom5.jpg" />
+    <None Remove="Images\cherryblossom6.jpg" />
+    <None Remove="Images\cherryblossom7.jpg" />
+    <None Remove="Images\cherryblossom8.jpg" />
+    <None Remove="Images\cherryblossom9.jpg" />
+    <None Remove="Images\colorfuldesign1.jpg" />
+    <None Remove="Images\colorfuldesign2.jpg" />
+    <None Remove="Images\colorfuldesign3.jpg" />
+    <None Remove="Images\colorfuldesign4.jpg" />
+    <None Remove="Images\colorfuldesign5.jpg" />
+    <None Remove="Images\colorfuldesign6.jpg" />
+    <None Remove="Images\colorfuldesign7.jpg" />
+    <None Remove="Images\colorfuldesign8.jpg" />
+    <None Remove="Images\colorfuldesign9.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Images\Bee 1.JPG">
+    <Content Include="Images\bee1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Bee 2.JPG">
+    <Content Include="Images\bee2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Bee 3.JPG">
+    <Content Include="Images\bee3.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Bee 4.JPG">
+    <Content Include="Images\bee4.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Bee 5.JPG">
+    <Content Include="Images\bee5.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Bee 6.JPG">
+    <Content Include="Images\bee6.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Bee 7.JPG">
+    <Content Include="Images\bee7.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Bee 8.JPG">
+    <Content Include="Images\bee8.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Bee 9.JPG">
+    <Content Include="Images\bee9.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cherry Blossom 1.jpg">
+    <Content Include="Images\cherryblossom1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cherry Blossom 2.jpg">
+    <Content Include="Images\cherryblossom2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cherry Blossom 3.jpg">
+    <Content Include="Images\cherryblossom3.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cherry Blossom 4.jpg">
+    <Content Include="Images\cherryblossom4.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cherry Blossom 5.jpg">
+    <Content Include="Images\cherryblossom5.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cherry Blossom 6.jpg">
+    <Content Include="Images\cherryblossom6.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cherry Blossom 7.jpg">
+    <Content Include="Images\cherryblossom7.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cherry Blossom 8.jpg">
+    <Content Include="Images\cherryblossom8.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cherry Blossom 9.jpg">
+    <Content Include="Images\cherryblossom9.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Colorful Design 1.jpg">
+    <Content Include="Images\colorfuldesign1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Colorful Design 2.jpg">
+    <Content Include="Images\colorfuldesign2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Colorful Design 3.jpg">
+    <Content Include="Images\colorfuldesign3.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Colorful Design 4.jpg">
+    <Content Include="Images\colorfuldesign4.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Colorful Design 5.jpg">
+    <Content Include="Images\colorfuldesign5.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Colorful Design 6.jpg">
+    <Content Include="Images\colorfuldesign6.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Colorful Design 7.jpg">
+    <Content Include="Images\colorfuldesign7.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Colorful Design 8.jpg">
+    <Content Include="Images\colorfuldesign8.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Colorful Design 9.jpg">
+    <Content Include="Images\colorfuldesign9.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PuzzleQSystem\PuzzleQSystem.csproj" />
   </ItemGroup>
 
 </Project>

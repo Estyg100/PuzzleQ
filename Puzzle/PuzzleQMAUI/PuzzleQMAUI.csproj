@@ -47,7 +47,6 @@
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -58,13 +57,123 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\WINGDING.TTF" />
-	  <None Remove="Resources\Images\bee1.jpg" />
+	  <None Remove="Resources\Images\bee2.jpg" />
+	  <None Remove="Resources\Images\bee3.jpg" />
+	  <None Remove="Resources\Images\bee4.jpg" />
+	  <None Remove="Resources\Images\bee5.jpg" />
+	  <None Remove="Resources\Images\bee6.jpg" />
+	  <None Remove="Resources\Images\bee7.jpg" />
+	  <None Remove="Resources\Images\bee8.jpg" />
+	  <None Remove="Resources\Images\bee9.jpg" />
+	  <None Remove="Resources\Images\cherryblossom1.jpg" />
+	  <None Remove="Resources\Images\cherryblossom2.jpg" />
+	  <None Remove="Resources\Images\cherryblossom3.jpg" />
+	  <None Remove="Resources\Images\cherryblossom4.jpg" />
+	  <None Remove="Resources\Images\cherryblossom5.jpg" />
+	  <None Remove="Resources\Images\cherryblossom6.jpg" />
+	  <None Remove="Resources\Images\cherryblossom7.jpg" />
+	  <None Remove="Resources\Images\cherryblossom8.jpg" />
+	  <None Remove="Resources\Images\cherryblossom9.jpg" />
+	  <None Remove="Resources\Images\colorfuldesign1.jpg" />
+	  <None Remove="Resources\Images\colorfuldesign2.jpg" />
+	  <None Remove="Resources\Images\colorfuldesign3.jpg" />
+	  <None Remove="Resources\Images\colorfuldesign4.jpg" />
+	  <None Remove="Resources\Images\colorfuldesign5.jpg" />
+	  <None Remove="Resources\Images\colorfuldesign6.jpg" />
+	  <None Remove="Resources\Images\colorfuldesign7.jpg" />
+	  <None Remove="Resources\Images\colorfuldesign8.jpg" />
+	  <None Remove="Resources\Images\colorfuldesign9.jpg" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Resources\Images\bee2.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\Images\bee3.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\Images\bee4.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\Images\bee5.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\Images\bee6.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\Images\bee7.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\Images\bee8.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\Images\bee9.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\Images\cherryblossom1.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\Images\cherryblossom2.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\Images\cherryblossom3.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\Images\cherryblossom4.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\Images\cherryblossom5.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\Images\cherryblossom6.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\Images\cherryblossom7.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\Images\cherryblossom8.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\Images\cherryblossom9.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\Images\colorfuldesign1.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\Images\colorfuldesign2.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\Images\colorfuldesign3.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\Images\colorfuldesign4.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\Images\colorfuldesign5.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\Images\colorfuldesign6.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\Images\colorfuldesign7.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\Images\colorfuldesign8.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\Images\colorfuldesign9.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\PuzzleQSystem\PuzzleQSystem.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -3,6 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PuzzleQMAUI.MainPage"
              BackgroundColor="Orange">
+    <ContentPage.BindingContext>
+        <Binding Path="game" />
+    </ContentPage.BindingContext>
     <Grid 
         RowDefinitions="Auto,*" 
         ColumnDefinitions="*" 
@@ -15,29 +18,39 @@
             Grid.Row="0" 
             Grid.Column="0">
             <Button 
+                x:Name="btnStart"
                 Text="Start" 
                 Grid.Row="0" 
-                Grid.Column="0"/>
+                Grid.Column="0"
+                Clicked="btnStart_Clicked"/>
             <Button 
+                x:Name="btnDown"
                 Text="" 
                 Grid.Row="0" 
                 Grid.Column="1" 
-                FontFamily="WINGDING"/>
+                FontFamily="WINGDING"
+                Clicked="btnDown_Clicked"/>
             <Button 
+                x:Name="btnUp"
                 Text="" 
                 Grid.Row="0" 
                 Grid.Column="2" 
-                FontFamily="WINGDING"/>
+                FontFamily="WINGDING"
+                Clicked="btnUp_Clicked"/>
             <Button 
+                x:Name="btnLeft"
                 Text="" 
                 Grid.Row="0" 
                 Grid.Column="3" 
-                FontFamily="WINGDING"/>
+                FontFamily="WINGDING"
+                Clicked="btnLeft_Clicked"/>
             <Button 
+                x:Name="btnRight"
                 Text="" 
                 Grid.Row="0" 
                 Grid.Column="4" 
-                FontFamily="WINGDING"/>
+                FontFamily="WINGDING"
+                Clicked="btnRight_Clicked"/>
             <Label 
                 Text="Level: " 
                 Grid.Column="5" 
@@ -46,6 +59,7 @@
                 TextColor="White" 
                 FontAttributes="Bold"/>
             <Label 
+                x:Name="Level"
                 Text="1" 
                 Grid.Column="6" 
                 Grid.Row="0" 
@@ -59,6 +73,7 @@
                 TextColor="White" 
                 FontAttributes="Bold"/>
             <Label 
+                x:Name="Score"
                 Text="0" 
                 Grid.Column="8" 
                 Grid.Row="0" 
@@ -82,6 +97,15 @@
             Margin="15" 
             HorizontalOptions="CenterAndExpand" 
             VerticalOptions="CenterAndExpand">
+            <Image Grid.Row="0" Grid.Column="0" x:Name="image1" Source="{Binding Spots[0].SpotImage}" Margin="3"/>
+            <Image Grid.Row="0" Grid.Column="1" x:Name="image2" Source="{Binding Spots[1].SpotImage}" Margin="3"/>
+            <Image Grid.Row="0" Grid.Column="2" x:Name="image3" Source="{Binding Spots[2].SpotImage}" Margin="3"/>
+            <Image Grid.Row="1" Grid.Column="0" x:Name="image4" Source="{Binding Spots[3].SpotImage}" Margin="3"/>
+            <Image Grid.Row="1" Grid.Column="1" x:Name="image5" Source="{Binding Spots[4].SpotImage}" Margin="3"/>
+            <Image Grid.Row="1" Grid.Column="2" x:Name="image6" Source="{Binding Spots[5].SpotImage}" Margin="3"/>
+            <Image Grid.Row="2" Grid.Column="0" x:Name="image7" Source="{Binding Spots[6].SpotImage}" Margin="3"/>
+            <Image Grid.Row="2" Grid.Column="1" x:Name="image8" Source="{Binding Spots[7].SpotImage}" Margin="3"/>
+            <Image Grid.Row="2" Grid.Column="2" x:Name="image9" Source="{Binding Spots[8].SpotImage}" Margin="3"/>
         </Grid>
     </Grid>
 </ContentPage>
