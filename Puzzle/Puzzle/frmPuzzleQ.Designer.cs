@@ -212,10 +212,11 @@
             lblScore.AutoSize = true;
             lblScore.Dock = DockStyle.Right;
             lblScore.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblScore.Location = new Point(812, 52);
+            lblScore.Location = new Point(750, 52);
             lblScore.Name = "lblScore";
-            lblScore.Size = new Size(0, 57);
+            lblScore.Size = new Size(62, 57);
             lblScore.TabIndex = 3;
+            lblScore.Text = "Score:";
             lblScore.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblMessage
@@ -238,7 +239,8 @@
             lblScoreNumber.AutoSize = true;
             lblScoreNumber.Dock = DockStyle.Left;
             lblScoreNumber.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblScoreNumber.Location = new Point(818, 52);
+            lblScoreNumber.Location = new Point(815, 52);
+            lblScoreNumber.Margin = new Padding(0, 0, 3, 0);
             lblScoreNumber.Name = "lblScoreNumber";
             lblScoreNumber.Size = new Size(0, 57);
             lblScoreNumber.TabIndex = 5;

@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PuzzleQMAUI.MainPage"
-             BackgroundColor="Orange">
+             BackgroundColor="{Binding PopOfColorMaui}">
     <ContentPage.BindingContext>
         <Binding Path="game" />
     </ContentPage.BindingContext>
@@ -10,11 +10,11 @@
         RowDefinitions="Auto,*" 
         ColumnDefinitions="*" 
         Margin="0,5,0,5"
-        BackgroundColor="#E82D97" 
+        BackgroundColor="{Binding BackColorMaui}" 
         x:Name="gMain">
         <Grid 
             RowDefinitions="*,*" 
-            ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,*" 
+            ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,*" 
             Grid.Row="0" 
             Grid.Column="0">
             <Button 
@@ -22,60 +22,65 @@
                 Text="Start" 
                 Grid.Row="0" 
                 Grid.Column="0"
-                Clicked="btnStart_Clicked"/>
+                Clicked="btnStart_Clicked"
+                BackgroundColor="{Binding PopOfColorMaui}"
+                FontSize="Large"
+                FontAttributes="Bold"/>
             <Button 
                 x:Name="btnDown"
                 Text="" 
                 Grid.Row="0" 
                 Grid.Column="1" 
                 FontFamily="WINGDING"
-                Clicked="btnDown_Clicked"/>
+                Clicked="btnDown_Clicked"
+                BackgroundColor="{Binding PopOfColorMaui}"
+                FontSize="Large"/>
             <Button 
                 x:Name="btnUp"
                 Text="" 
                 Grid.Row="0" 
                 Grid.Column="2" 
                 FontFamily="WINGDING"
-                Clicked="btnUp_Clicked"/>
+                Clicked="btnUp_Clicked"
+                BackgroundColor="{Binding PopOfColorMaui}"
+                FontSize="Large"/>
             <Button 
                 x:Name="btnLeft"
                 Text="" 
                 Grid.Row="0" 
                 Grid.Column="3" 
                 FontFamily="WINGDING"
-                Clicked="btnLeft_Clicked"/>
+                Clicked="btnLeft_Clicked"
+                BackgroundColor="{Binding PopOfColorMaui}"
+                FontSize="Large"/>
             <Button 
                 x:Name="btnRight"
                 Text="" 
                 Grid.Row="0" 
                 Grid.Column="4" 
                 FontFamily="WINGDING"
-                Clicked="btnRight_Clicked"/>
-            <Label 
-                Text="Level: " 
-                Grid.Column="5" 
-                Grid.Row="0" 
-                Margin="5" 
-                TextColor="White" 
-                FontAttributes="Bold"/>
+                Clicked="btnRight_Clicked"
+                BackgroundColor="{Binding PopOfColorMaui}"
+                FontSize="Large"/>
             <Label 
                 x:Name="Level"
-                Text="1" 
-                Grid.Column="6" 
+                Text="{Binding leveldesc}" 
+                Grid.Column="5" 
                 Grid.Row="0" 
                 TextColor="White" 
-                FontAttributes="Bold"/>
+                FontAttributes="Bold"
+                />
             <Label 
                 Text="Score: " 
-                Grid.Column="7" 
+                Grid.Column="6" 
                 Grid.Row="0" 
                 Margin="15,5,5,5" 
                 TextColor="White" 
                 FontAttributes="Bold"/>
             <Label 
                 x:Name="Score"
-                Text="0" 
-                Grid.Column="8" 
+                Text="{Binding score}" 
+                Grid.Column="7" 
                 Grid.Row="0" 
                 TextColor="White" 
                 FontAttributes="Bold"/>
@@ -83,10 +88,17 @@
                 Grid.Row="1" 
                 Grid.Column="0" 
                 Grid.ColumnSpan="10" 
-                Margin="10,0,10,0" 
+                Margin="10,0,10,0"
+                MinimumHeightRequest="35"
                 BackgroundColor="White"
                 Stroke="Transparent">
-                <Label TextColor="#E82D97"/>
+                <Label 
+                    x:Name="lblMessage"
+                    TextColor="{Binding PopOfColorMaui}"
+                    FontAttributes="Bold"
+                    Text="{Binding Message}"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"/>
             </Border>
         </Grid>
         <Grid 

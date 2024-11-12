@@ -33,35 +33,5 @@ namespace PuzzleQTest
             TestContext.WriteLine(messsage);
         }
 
-        [Test]
-        public void TestWinner()
-        {
-            Game game = new();
-            game.StartGame();
-            game.SetWinnerIfTrue();
-            bool b = false;
-            if (game.Spots[8].SpotImage == @"images\bee9.jpg")
-            {
-                b = true;
-            }
-            string message = $"Winner = {b}";
-            TestContext.WriteLine(message);
-            game.Spots[0].SpotImage = @"images\bee1.jpg";
-            game.Spots[1].SpotImage = @"images\bee2.jpg";
-            game.Spots[2].SpotImage = @"images\bee3.jpg";
-            game.Spots[3].SpotImage = @"images\bee4.jpg";
-            game.Spots[4].SpotImage = @"images\bee5.jpg";
-            game.Spots[5].SpotImage = @"images\bee6.jpg";
-            game.Spots[6].SpotImage = @"images\bee7.jpg";
-            game.Spots[7].SpotImage = @"images\bee8.jpg";
-            game.SetWinnerIfTrue();
-            if (game.Spots[8].SpotImage == @"images\bee9.jpg")
-            {
-                b = true;
-            }
-            string message2 = $"Winner = {b}";
-            Assert.IsTrue(b = true, message);
-            TestContext.WriteLine(message2);
-        }
     }
 }

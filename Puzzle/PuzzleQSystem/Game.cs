@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
 namespace PuzzleQSystem
@@ -6,8 +7,6 @@ namespace PuzzleQSystem
     public class Game : INotifyPropertyChanged
     {
         public enum GameStatusEnum { NotStarted, Playing, Winner }
-
-        private bool _hasGameStarted = false; 
 
         public enum CurrentLevelEnum { Level1, Level2, Level3 }
 
@@ -29,7 +28,7 @@ namespace PuzzleQSystem
 
         int _score = 0;
 
-        string _message = "";
+        string _message = "Click Start to Begin the Game.";
 
         System.Drawing.Color _popofcolor;
 
@@ -73,19 +72,23 @@ namespace PuzzleQSystem
             }
         }
 
-        public string leveldesc { get => this.CurrentLevel.ToString().Substring(0, 5) + " " + this.CurrentLevel.ToString().Substring(5); }
+        public string leveldesc { get => this.CurrentLevel.ToString().Substring(0, 5) + ": " + this.CurrentLevel.ToString().Substring(5); }
 
         public int score
         {
             get => _score;
             private set
             {
-                _score = value;
-                this.InvokePropertyChanged();
+                if (_score != value)
+                {
+                    _score = value;
+                    Debug.WriteLine($"Score updated to: {_score}");
+                    this.InvokePropertyChanged();
+                }
             }
         }
 
-        public string message
+        public string Message
         {
             get => _message;
             private set
@@ -147,7 +150,6 @@ namespace PuzzleQSystem
         public void StartGame()
         {
             this.Spots.ForEach(s => s.Clear());
-            this.GameStatus = GameStatusEnum.Playing;
             this.PopOfColor = this.PlayingColor;
             SetGameAttributes();
             Shuffle();
@@ -172,7 +174,7 @@ namespace PuzzleQSystem
                 spotresults = listresults[n];
                 Spot spotsource = listsource[n];
                 spotresults.SpotImage = spotsource.SpotImage;
-                spotsource.SpotImage = "";
+                spotsource.Clear();
             }
         }
 
@@ -299,39 +301,34 @@ namespace PuzzleQSystem
             TakeMove(CanMoveDownResults, CanMoveDownSource);
         }
 
-        
-
         private void SetGameAttributes()
         {
-            if (GameStatus == GameStatusEnum.NotStarted)
+            if (GameStatus == GameStatusEnum.Playing)
+            {
+                this.score = this.score - 1;
+            }
+            else
             {
                 GameStatus = GameStatusEnum.Playing;
-                _hasGameStarted = true;
-            }
-            else if (GameStatus == GameStatusEnum.Playing)
-            {
-                if (_hasGameStarted)
-                {
-                    _score = _score - 1;
-                }
             }
         }
+
 
         private void SetMessage()
         {
             if (GameStatus == GameStatusEnum.Playing)
             {
-                this.message = "Try to complete the picture by moving the photos around using the arrow buttons. You can click start anytime to get a new layout, but your score will decrease.";
+                this.Message = "Try to complete the picture by moving the photos around using the arrow buttons. You can click start anytime to get a new layout, but your score will decrease.";
             }
             else if (GameStatus == GameStatusEnum.Winner)
             {
                 if (CurrentLevel == CurrentLevelEnum.Level3)
                 {
-                    this.message = "YOU WON! CONGRATULATIONS! YOU HAVE SUCCESSFULLY COMPLETED ALL THREE LEVELS!" + Environment.NewLine + "Click Start to begin from level 1 again.";
+                    this.Message = "YOU WON! CONGRATULATIONS! YOU HAVE SUCCESSFULLY COMPLETED ALL THREE LEVELS!" + Environment.NewLine + "Click Start to begin from level 1 again.";
                 }
                 else
                 {
-                    this.message = "YOU WON! HOORAY!" + Environment.NewLine + "Click Start to proceed to the next level.";
+                    this.Message = "YOU WON! HOORAY!" + Environment.NewLine + "Click Start to proceed to the next level.";
                 }
             }
         }
@@ -365,7 +362,8 @@ namespace PuzzleQSystem
             if (winner)
             {
                 GameStatus = GameStatusEnum.Winner;
-                _score++;
+                this.score++;
+                InvokePropertyChanged(nameof(score));
                 this.PopOfColor = this.WinnerColor;
                 switch (CurrentLevel)
                 {

@@ -15,26 +15,29 @@ public partial class MainPage : ContentPage
     private void btnStart_Clicked(object sender, EventArgs e)
     {
         game.StartGame();
-        //OnPropertyChanged(nameof(game.Spots));
     }
 
     private void btnUp_Clicked(object sender, EventArgs e)
     {
-        // Implement movement logic
+        game.MoveUp();
+        game.SetWinnerIfTrue();
     }
 
     private void btnDown_Clicked(object sender, EventArgs e)
     {
-        // Implement movement logic
+        game.MoveDown();
+        game.SetWinnerIfTrue();
     }
 
     private void btnLeft_Clicked(object sender, EventArgs e)
     {
-        // Implement movement logic
+        game.MoveLeft();
+        game.SetWinnerIfTrue();
     }
 
     private void btnRight_Clicked(object sender, EventArgs e)
     {
-        // Implement movement logic
+        game.MoveRight();
+        game.SetWinnerIfTrue();
     }
 }
