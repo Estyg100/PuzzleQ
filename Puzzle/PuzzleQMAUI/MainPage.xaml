@@ -3,9 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PuzzleQMAUI.MainPage"
              BackgroundColor="{Binding PopOfColorMaui}">
-    <ContentPage.BindingContext>
-        <Binding Path="game" />
-    </ContentPage.BindingContext>
     <Grid 
         RowDefinitions="Auto,*" 
         ColumnDefinitions="*" 
@@ -17,77 +14,80 @@
             ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,*" 
             Grid.Row="0" 
             Grid.Column="0">
+            <VerticalStackLayout Grid.Row="0" Grid.Column="0" Margin="0,0,10,0">
+                <RadioButton x:Name="Game1Rb" FontSize="Caption" FontAttributes="Bold" TextColor="White" Content="{Binding RadioButtonText}" CheckedChanged="Game_CheckedChanged" IsChecked="True"/>
+                <RadioButton x:Name="Game2Rb" FontSize="Caption" FontAttributes="Bold" TextColor="White" Content="{Binding RadioButtonText}" CheckedChanged="Game_CheckedChanged" />
+                <RadioButton x:Name="Game3Rb" FontSize="Caption" FontAttributes="Bold" TextColor="White" Content="{Binding RadioButtonText}" CheckedChanged="Game_CheckedChanged" />
+            </VerticalStackLayout>
             <Button 
                 x:Name="btnStart"
+                Margin="10,20,10,20"
                 Text="Start" 
                 Grid.Row="0" 
-                Grid.Column="0"
+                Grid.Column="1"
                 Clicked="btnStart_Clicked"
                 BackgroundColor="{Binding PopOfColorMaui}"
                 FontSize="Large"
                 FontAttributes="Bold"/>
             <Button 
                 x:Name="btnDown"
+                Margin="10,20,10,20"
                 Text="" 
                 Grid.Row="0" 
-                Grid.Column="1" 
+                Grid.Column="2" 
                 FontFamily="WINGDING"
                 Clicked="btnDown_Clicked"
                 BackgroundColor="{Binding PopOfColorMaui}"
                 FontSize="Large"/>
             <Button 
                 x:Name="btnUp"
+                Margin="10,20,10,20"
                 Text="" 
                 Grid.Row="0" 
-                Grid.Column="2" 
+                Grid.Column="3" 
                 FontFamily="WINGDING"
                 Clicked="btnUp_Clicked"
                 BackgroundColor="{Binding PopOfColorMaui}"
                 FontSize="Large"/>
             <Button 
                 x:Name="btnLeft"
+                Margin="10,20,10,20"
                 Text="" 
                 Grid.Row="0" 
-                Grid.Column="3" 
+                Grid.Column="4" 
                 FontFamily="WINGDING"
                 Clicked="btnLeft_Clicked"
                 BackgroundColor="{Binding PopOfColorMaui}"
                 FontSize="Large"/>
             <Button 
                 x:Name="btnRight"
+                Margin="10,20,10,20"
                 Text="" 
                 Grid.Row="0" 
-                Grid.Column="4" 
+                Grid.Column="5" 
                 FontFamily="WINGDING"
                 Clicked="btnRight_Clicked"
                 BackgroundColor="{Binding PopOfColorMaui}"
                 FontSize="Large"/>
             <Label 
-                x:Name="Level"
-                Text="{Binding leveldesc}" 
-                Grid.Column="5" 
+                Text="GRAND TOTAL:" 
+                Grid.Column="6" 
                 Grid.Row="0" 
                 TextColor="White" 
                 FontAttributes="Bold"
                 />
             <Label 
-                Text="Score: " 
-                Grid.Column="6" 
-                Grid.Row="0" 
-                Margin="15,5,5,5" 
-                TextColor="White" 
-                FontAttributes="Bold"/>
-            <Label 
-                x:Name="Score"
-                Text="{Binding score}" 
+                x:Name="GrandTotal"
+                Text="{Binding GrandScore}" 
                 Grid.Column="7" 
                 Grid.Row="0" 
+                Margin="15,5,5,5" 
                 TextColor="White" 
                 FontAttributes="Bold"/>
             <Border 
                 Grid.Row="1" 
                 Grid.Column="0" 
-                Grid.ColumnSpan="10" 
+                Grid.ColumnSpan="9" 
                 Margin="10,0,10,0"
                 MinimumHeightRequest="35"
                 BackgroundColor="White"

@@ -32,8 +32,14 @@ namespace PuzzleQSystem
 
         System.Drawing.Color _popofcolor;
 
+        private static int numgames;
+
+        public static int GrandScore = 0;
+
         public Game()
         {
+            numgames++;
+            this.GameName = "Game " + numgames;
             for (int i = 0; i < 9; i++)
             {
                 this.Spots.Add(new Spot());
@@ -50,6 +56,10 @@ namespace PuzzleQSystem
         }
 
         public List<Spot> Spots { get; private set; } = new();
+
+        public string GameName { get; private set; }
+
+        public string RadioButtonText { get => this.GameName + " - " + this.leveldesc + " - Score: " + this.score.ToString(); }
 
         public GameStatusEnum GameStatus
         {
@@ -69,6 +79,7 @@ namespace PuzzleQSystem
                 _currentlevel = value;
                 this.InvokePropertyChanged();
                 this.InvokePropertyChanged("leveldesc");
+                this.InvokePropertyChanged(nameof(RadioButtonText));
             }
         }
 
@@ -82,8 +93,8 @@ namespace PuzzleQSystem
                 if (_score != value)
                 {
                     _score = value;
-                    Debug.WriteLine($"Score updated to: {_score}");
                     this.InvokePropertyChanged();
+                    this.InvokePropertyChanged(nameof(RadioButtonText));
                 }
             }
         }
@@ -133,6 +144,8 @@ namespace PuzzleQSystem
         public System.Drawing.Color ButtonForeColor { get; set; } = System.Drawing.Color.White;
 
         public event PropertyChangedEventHandler? PropertyChanged;
+
+        public event EventHandler? GrandScoreChanged;
 
         private void InvokePropertyChanged([CallerMemberName] string propertyname = "")
         {
@@ -306,6 +319,8 @@ namespace PuzzleQSystem
             if (GameStatus == GameStatusEnum.Playing)
             {
                 this.score = this.score - 1;
+                GrandScore = GrandScore - 1;
+                GrandScoreChanged?.Invoke(this, new EventArgs());
             }
             else
             {
@@ -363,6 +378,8 @@ namespace PuzzleQSystem
             {
                 GameStatus = GameStatusEnum.Winner;
                 this.score++;
+                GrandScore++;
+                GrandScoreChanged?.Invoke(this, new EventArgs());
                 InvokePropertyChanged(nameof(score));
                 this.PopOfColor = this.WinnerColor;
                 switch (CurrentLevel)

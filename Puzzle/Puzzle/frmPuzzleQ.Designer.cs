@@ -31,16 +31,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPuzzleQ));
             tblMain = new TableLayoutPanel();
             tblControls = new TableLayoutPanel();
-            btnStart = new Button();
+            lblGrandScore = new Label();
+            lblMessage = new Label();
+            lblGrandScoreNumber = new Label();
             tblMovement = new TableLayoutPanel();
             btnUp = new Button();
             btnDown = new Button();
             btnLeft = new Button();
             btnRight = new Button();
-            lblCurrentLevel = new Label();
-            lblScore = new Label();
-            lblMessage = new Label();
-            lblScoreNumber = new Label();
+            btnStart = new Button();
+            flpRadioButtons = new FlowLayoutPanel();
+            optg1 = new RadioButton();
+            optg2 = new RadioButton();
+            optg3 = new RadioButton();
             tblGrid = new TableLayoutPanel();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
@@ -54,6 +57,7 @@
             tblMain.SuspendLayout();
             tblControls.SuspendLayout();
             tblMovement.SuspendLayout();
+            flpRadioButtons.SuspendLayout();
             tblGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -68,6 +72,7 @@
             // 
             // tblMain
             // 
+            tblMain.AutoSize = true;
             tblMain.BackColor = SystemColors.ControlLightLight;
             tblMain.ColumnCount = 1;
             tblMain.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
@@ -78,25 +83,26 @@
             tblMain.Location = new Point(0, 0);
             tblMain.Name = "tblMain";
             tblMain.RowCount = 2;
-            tblMain.RowStyles.Add(new RowStyle(SizeType.Percent, 15.5826559F));
-            tblMain.RowStyles.Add(new RowStyle(SizeType.Percent, 84.41734F));
-            tblMain.Size = new Size(966, 738);
+            tblMain.RowStyles.Add(new RowStyle(SizeType.Percent, 24.8081837F));
+            tblMain.RowStyles.Add(new RowStyle(SizeType.Percent, 75.19182F));
+            tblMain.Size = new Size(966, 782);
             tblMain.TabIndex = 0;
             // 
             // tblControls
             // 
+            tblControls.AutoSize = true;
             tblControls.ColumnCount = 5;
-            tblControls.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.395833F));
-            tblControls.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 38.4375F));
-            tblControls.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 18.333334F));
+            tblControls.ColumnStyles.Add(new ColumnStyle());
+            tblControls.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.979166F));
+            tblControls.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 39.7916679F));
             tblControls.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15.729167F));
             tblControls.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.895833F));
-            tblControls.Controls.Add(btnStart, 0, 1);
-            tblControls.Controls.Add(tblMovement, 1, 1);
-            tblControls.Controls.Add(lblCurrentLevel, 2, 1);
-            tblControls.Controls.Add(lblScore, 3, 1);
+            tblControls.Controls.Add(lblGrandScore, 3, 1);
             tblControls.Controls.Add(lblMessage, 0, 0);
-            tblControls.Controls.Add(lblScoreNumber, 4, 1);
+            tblControls.Controls.Add(lblGrandScoreNumber, 4, 1);
+            tblControls.Controls.Add(tblMovement, 2, 1);
+            tblControls.Controls.Add(btnStart, 1, 1);
+            tblControls.Controls.Add(flpRadioButtons, 0, 1);
             tblControls.Dock = DockStyle.Fill;
             tblControls.ForeColor = SystemColors.ControlLightLight;
             tblControls.Location = new Point(3, 3);
@@ -104,120 +110,20 @@
             tblControls.RowCount = 2;
             tblControls.RowStyles.Add(new RowStyle(SizeType.Percent, 47.70642F));
             tblControls.RowStyles.Add(new RowStyle(SizeType.Percent, 52.29358F));
-            tblControls.Size = new Size(960, 109);
+            tblControls.Size = new Size(960, 188);
             tblControls.TabIndex = 1;
             // 
-            // btnStart
+            // lblGrandScore
             // 
-            btnStart.BackColor = SystemColors.ControlLightLight;
-            btnStart.Dock = DockStyle.Fill;
-            btnStart.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnStart.ForeColor = SystemColors.ControlLightLight;
-            btnStart.Location = new Point(3, 55);
-            btnStart.Name = "btnStart";
-            btnStart.Size = new Size(113, 51);
-            btnStart.TabIndex = 0;
-            btnStart.Text = "Start";
-            btnStart.UseVisualStyleBackColor = false;
-            // 
-            // tblMovement
-            // 
-            tblMovement.ColumnCount = 4;
-            tblMovement.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tblMovement.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tblMovement.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tblMovement.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tblMovement.Controls.Add(btnUp, 0, 0);
-            tblMovement.Controls.Add(btnDown, 1, 0);
-            tblMovement.Controls.Add(btnLeft, 2, 0);
-            tblMovement.Controls.Add(btnRight, 3, 0);
-            tblMovement.Dock = DockStyle.Fill;
-            tblMovement.Location = new Point(122, 55);
-            tblMovement.Name = "tblMovement";
-            tblMovement.RowCount = 1;
-            tblMovement.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tblMovement.Size = new Size(363, 51);
-            tblMovement.TabIndex = 1;
-            // 
-            // btnUp
-            // 
-            btnUp.BackColor = SystemColors.ControlLightLight;
-            btnUp.Dock = DockStyle.Fill;
-            btnUp.Enabled = false;
-            btnUp.Font = new Font("Wingdings", 18F, FontStyle.Regular, GraphicsUnit.Point, 2);
-            btnUp.ForeColor = SystemColors.ControlLightLight;
-            btnUp.Location = new Point(3, 3);
-            btnUp.Name = "btnUp";
-            btnUp.Size = new Size(84, 45);
-            btnUp.TabIndex = 0;
-            btnUp.Text = "";
-            btnUp.UseVisualStyleBackColor = false;
-            // 
-            // btnDown
-            // 
-            btnDown.BackColor = SystemColors.ControlLightLight;
-            btnDown.Dock = DockStyle.Fill;
-            btnDown.Enabled = false;
-            btnDown.Font = new Font("Wingdings", 18F, FontStyle.Regular, GraphicsUnit.Point, 2);
-            btnDown.ForeColor = SystemColors.ControlLightLight;
-            btnDown.Location = new Point(93, 3);
-            btnDown.Name = "btnDown";
-            btnDown.Size = new Size(84, 45);
-            btnDown.TabIndex = 1;
-            btnDown.Text = "";
-            btnDown.UseVisualStyleBackColor = false;
-            // 
-            // btnLeft
-            // 
-            btnLeft.BackColor = SystemColors.ControlLightLight;
-            btnLeft.Dock = DockStyle.Fill;
-            btnLeft.Enabled = false;
-            btnLeft.Font = new Font("Wingdings", 18F, FontStyle.Regular, GraphicsUnit.Point, 2);
-            btnLeft.ForeColor = SystemColors.ControlLightLight;
-            btnLeft.Location = new Point(183, 3);
-            btnLeft.Name = "btnLeft";
-            btnLeft.Size = new Size(84, 45);
-            btnLeft.TabIndex = 2;
-            btnLeft.Text = "";
-            btnLeft.UseVisualStyleBackColor = false;
-            // 
-            // btnRight
-            // 
-            btnRight.BackColor = SystemColors.ControlLightLight;
-            btnRight.Dock = DockStyle.Fill;
-            btnRight.Enabled = false;
-            btnRight.Font = new Font("Wingdings", 18F, FontStyle.Regular, GraphicsUnit.Point, 2);
-            btnRight.ForeColor = SystemColors.ControlLightLight;
-            btnRight.Location = new Point(273, 3);
-            btnRight.Name = "btnRight";
-            btnRight.Size = new Size(87, 45);
-            btnRight.TabIndex = 3;
-            btnRight.Text = "";
-            btnRight.UseVisualStyleBackColor = false;
-            // 
-            // lblCurrentLevel
-            // 
-            lblCurrentLevel.AutoSize = true;
-            lblCurrentLevel.Dock = DockStyle.Fill;
-            lblCurrentLevel.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCurrentLevel.ForeColor = SystemColors.ControlLightLight;
-            lblCurrentLevel.Location = new Point(491, 52);
-            lblCurrentLevel.Name = "lblCurrentLevel";
-            lblCurrentLevel.Size = new Size(170, 57);
-            lblCurrentLevel.TabIndex = 2;
-            lblCurrentLevel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // lblScore
-            // 
-            lblScore.AutoSize = true;
-            lblScore.Dock = DockStyle.Right;
-            lblScore.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblScore.Location = new Point(750, 52);
-            lblScore.Name = "lblScore";
-            lblScore.Size = new Size(62, 57);
-            lblScore.TabIndex = 3;
-            lblScore.Text = "Score:";
-            lblScore.TextAlign = ContentAlignment.MiddleCenter;
+            lblGrandScore.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            lblGrandScore.AutoSize = true;
+            lblGrandScore.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblGrandScore.Location = new Point(638, 126);
+            lblGrandScore.Name = "lblGrandScore";
+            lblGrandScore.Size = new Size(161, 25);
+            lblGrandScore.TabIndex = 3;
+            lblGrandScore.Text = "Grand Total:";
+            lblGrandScore.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblMessage
             // 
@@ -229,22 +135,153 @@
             lblMessage.ForeColor = SystemColors.ControlLightLight;
             lblMessage.Location = new Point(3, 0);
             lblMessage.Name = "lblMessage";
-            lblMessage.Size = new Size(954, 52);
+            lblMessage.Size = new Size(954, 89);
             lblMessage.TabIndex = 4;
             lblMessage.Text = "Click Start to Begin the Game.";
             lblMessage.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // lblScoreNumber
+            // lblGrandScoreNumber
             // 
-            lblScoreNumber.AutoSize = true;
-            lblScoreNumber.Dock = DockStyle.Left;
-            lblScoreNumber.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblScoreNumber.Location = new Point(815, 52);
-            lblScoreNumber.Margin = new Padding(0, 0, 3, 0);
-            lblScoreNumber.Name = "lblScoreNumber";
-            lblScoreNumber.Size = new Size(0, 57);
-            lblScoreNumber.TabIndex = 5;
-            lblScoreNumber.TextAlign = ContentAlignment.MiddleLeft;
+            lblGrandScoreNumber.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            lblGrandScoreNumber.AutoSize = true;
+            lblGrandScoreNumber.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblGrandScoreNumber.Location = new Point(802, 126);
+            lblGrandScoreNumber.Margin = new Padding(0, 0, 3, 0);
+            lblGrandScoreNumber.Name = "lblGrandScoreNumber";
+            lblGrandScoreNumber.Size = new Size(155, 25);
+            lblGrandScoreNumber.TabIndex = 5;
+            lblGrandScoreNumber.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // tblMovement
+            // 
+            tblMovement.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            tblMovement.ColumnCount = 4;
+            tblMovement.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tblMovement.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tblMovement.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tblMovement.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tblMovement.Controls.Add(btnUp, 0, 0);
+            tblMovement.Controls.Add(btnDown, 1, 0);
+            tblMovement.Controls.Add(btnLeft, 2, 0);
+            tblMovement.Controls.Add(btnRight, 3, 0);
+            tblMovement.Location = new Point(215, 113);
+            tblMovement.Name = "tblMovement";
+            tblMovement.RowCount = 1;
+            tblMovement.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tblMovement.Size = new Size(417, 51);
+            tblMovement.TabIndex = 1;
+            // 
+            // btnUp
+            // 
+            btnUp.BackColor = SystemColors.ControlLightLight;
+            btnUp.Dock = DockStyle.Fill;
+            btnUp.Enabled = false;
+            btnUp.Font = new Font("Wingdings", 18F, FontStyle.Regular, GraphicsUnit.Point, 2);
+            btnUp.ForeColor = SystemColors.ControlLightLight;
+            btnUp.Location = new Point(3, 3);
+            btnUp.Name = "btnUp";
+            btnUp.Size = new Size(98, 45);
+            btnUp.TabIndex = 0;
+            btnUp.Text = "";
+            btnUp.UseVisualStyleBackColor = false;
+            // 
+            // btnDown
+            // 
+            btnDown.BackColor = SystemColors.ControlLightLight;
+            btnDown.Dock = DockStyle.Fill;
+            btnDown.Enabled = false;
+            btnDown.Font = new Font("Wingdings", 18F, FontStyle.Regular, GraphicsUnit.Point, 2);
+            btnDown.ForeColor = SystemColors.ControlLightLight;
+            btnDown.Location = new Point(107, 3);
+            btnDown.Name = "btnDown";
+            btnDown.Size = new Size(98, 45);
+            btnDown.TabIndex = 1;
+            btnDown.Text = "";
+            btnDown.UseVisualStyleBackColor = false;
+            // 
+            // btnLeft
+            // 
+            btnLeft.BackColor = SystemColors.ControlLightLight;
+            btnLeft.Dock = DockStyle.Fill;
+            btnLeft.Enabled = false;
+            btnLeft.Font = new Font("Wingdings", 18F, FontStyle.Regular, GraphicsUnit.Point, 2);
+            btnLeft.ForeColor = SystemColors.ControlLightLight;
+            btnLeft.Location = new Point(211, 3);
+            btnLeft.Name = "btnLeft";
+            btnLeft.Size = new Size(98, 45);
+            btnLeft.TabIndex = 2;
+            btnLeft.Text = "";
+            btnLeft.UseVisualStyleBackColor = false;
+            // 
+            // btnRight
+            // 
+            btnRight.BackColor = SystemColors.ControlLightLight;
+            btnRight.Enabled = false;
+            btnRight.Font = new Font("Wingdings", 18F, FontStyle.Regular, GraphicsUnit.Point, 2);
+            btnRight.ForeColor = SystemColors.ControlLightLight;
+            btnRight.Location = new Point(315, 3);
+            btnRight.Name = "btnRight";
+            btnRight.Size = new Size(87, 45);
+            btnRight.TabIndex = 3;
+            btnRight.Text = "";
+            btnRight.UseVisualStyleBackColor = false;
+            // 
+            // btnStart
+            // 
+            btnStart.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            btnStart.BackColor = SystemColors.ControlLightLight;
+            btnStart.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnStart.ForeColor = SystemColors.ControlLightLight;
+            btnStart.Location = new Point(35, 113);
+            btnStart.Name = "btnStart";
+            btnStart.Size = new Size(174, 51);
+            btnStart.TabIndex = 0;
+            btnStart.Text = "Start";
+            btnStart.UseVisualStyleBackColor = false;
+            // 
+            // flpRadioButtons
+            // 
+            flpRadioButtons.AutoSize = true;
+            flpRadioButtons.Controls.Add(optg1);
+            flpRadioButtons.Controls.Add(optg2);
+            flpRadioButtons.Controls.Add(optg3);
+            flpRadioButtons.Dock = DockStyle.Fill;
+            flpRadioButtons.Location = new Point(3, 92);
+            flpRadioButtons.Name = "flpRadioButtons";
+            flpRadioButtons.Size = new Size(26, 93);
+            flpRadioButtons.TabIndex = 6;
+            // 
+            // optg1
+            // 
+            optg1.AutoSize = true;
+            optg1.Checked = true;
+            optg1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            optg1.Location = new Point(3, 3);
+            optg1.Name = "optg1";
+            optg1.Size = new Size(17, 16);
+            optg1.TabIndex = 3;
+            optg1.TabStop = true;
+            optg1.UseVisualStyleBackColor = true;
+            // 
+            // optg2
+            // 
+            optg2.AutoSize = true;
+            optg2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            optg2.Location = new Point(3, 25);
+            optg2.Name = "optg2";
+            optg2.Size = new Size(17, 16);
+            optg2.TabIndex = 2;
+            optg2.UseVisualStyleBackColor = true;
+            // 
+            // optg3
+            // 
+            optg3.AutoSize = true;
+            optg3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            optg3.Location = new Point(3, 47);
+            optg3.Name = "optg3";
+            optg3.Size = new Size(17, 16);
+            optg3.TabIndex = 0;
+            optg3.UseVisualStyleBackColor = true;
             // 
             // tblGrid
             // 
@@ -263,13 +300,13 @@
             tblGrid.Controls.Add(pictureBox7, 0, 2);
             tblGrid.Controls.Add(pictureBox8, 1, 2);
             tblGrid.Controls.Add(pictureBox9, 2, 2);
-            tblGrid.Location = new Point(183, 126);
+            tblGrid.Location = new Point(183, 197);
             tblGrid.Name = "tblGrid";
             tblGrid.RowCount = 3;
             tblGrid.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             tblGrid.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             tblGrid.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
-            tblGrid.Size = new Size(600, 600);
+            tblGrid.Size = new Size(600, 582);
             tblGrid.TabIndex = 0;
             // 
             // pictureBox1
@@ -277,7 +314,7 @@
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Location = new Point(3, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(194, 194);
+            pictureBox1.Size = new Size(194, 188);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -287,7 +324,7 @@
             pictureBox2.Dock = DockStyle.Fill;
             pictureBox2.Location = new Point(203, 3);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(194, 194);
+            pictureBox2.Size = new Size(194, 188);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
@@ -297,7 +334,7 @@
             pictureBox3.Dock = DockStyle.Fill;
             pictureBox3.Location = new Point(403, 3);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(194, 194);
+            pictureBox3.Size = new Size(194, 188);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 2;
             pictureBox3.TabStop = false;
@@ -305,9 +342,9 @@
             // pictureBox4
             // 
             pictureBox4.Dock = DockStyle.Fill;
-            pictureBox4.Location = new Point(3, 203);
+            pictureBox4.Location = new Point(3, 197);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(194, 194);
+            pictureBox4.Size = new Size(194, 188);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 3;
             pictureBox4.TabStop = false;
@@ -315,9 +352,9 @@
             // pictureBox5
             // 
             pictureBox5.Dock = DockStyle.Fill;
-            pictureBox5.Location = new Point(203, 203);
+            pictureBox5.Location = new Point(203, 197);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(194, 194);
+            pictureBox5.Size = new Size(194, 188);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox5.TabIndex = 4;
             pictureBox5.TabStop = false;
@@ -325,9 +362,9 @@
             // pictureBox6
             // 
             pictureBox6.Dock = DockStyle.Fill;
-            pictureBox6.Location = new Point(403, 203);
+            pictureBox6.Location = new Point(403, 197);
             pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(194, 194);
+            pictureBox6.Size = new Size(194, 188);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox6.TabIndex = 5;
             pictureBox6.TabStop = false;
@@ -335,9 +372,9 @@
             // pictureBox7
             // 
             pictureBox7.Dock = DockStyle.Fill;
-            pictureBox7.Location = new Point(3, 403);
+            pictureBox7.Location = new Point(3, 391);
             pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(194, 194);
+            pictureBox7.Size = new Size(194, 188);
             pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox7.TabIndex = 6;
             pictureBox7.TabStop = false;
@@ -345,9 +382,9 @@
             // pictureBox8
             // 
             pictureBox8.Dock = DockStyle.Fill;
-            pictureBox8.Location = new Point(203, 403);
+            pictureBox8.Location = new Point(203, 391);
             pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(194, 194);
+            pictureBox8.Size = new Size(194, 188);
             pictureBox8.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox8.TabIndex = 7;
             pictureBox8.TabStop = false;
@@ -355,9 +392,9 @@
             // pictureBox9
             // 
             pictureBox9.Dock = DockStyle.Fill;
-            pictureBox9.Location = new Point(403, 403);
+            pictureBox9.Location = new Point(403, 391);
             pictureBox9.Name = "pictureBox9";
-            pictureBox9.Size = new Size(194, 194);
+            pictureBox9.Size = new Size(194, 188);
             pictureBox9.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox9.TabIndex = 8;
             pictureBox9.TabStop = false;
@@ -366,7 +403,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(966, 738);
+            ClientSize = new Size(966, 782);
             Controls.Add(tblMain);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmPuzzleQ";
@@ -376,6 +413,8 @@
             tblControls.ResumeLayout(false);
             tblControls.PerformLayout();
             tblMovement.ResumeLayout(false);
+            flpRadioButtons.ResumeLayout(false);
+            flpRadioButtons.PerformLayout();
             tblGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -387,6 +426,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -409,9 +449,12 @@
         private Button btnDown;
         private Button btnLeft;
         private Button btnRight;
-        private Label lblCurrentLevel;
-        private Label lblScore;
+        private Label lblGrandScore;
         private Label lblMessage;
-        private Label lblScoreNumber;
+        private Label lblGrandScoreNumber;
+        private FlowLayoutPanel flpRadioButtons;
+        private RadioButton optg2;
+        private RadioButton optg3;
+        private RadioButton optg1;
     }
 }
