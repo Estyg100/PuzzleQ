@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PuzzleQMAUI", "PuzzleQMAUI\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PuzzleQSystem", "PuzzleQSystem\PuzzleQSystem.csproj", "{73A0CE8F-7666-4B7C-B9B8-2877C51A5678}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PuzzleQTest", "PuzzleQTest\PuzzleQTest.csproj", "{386EFB47-B4C3-4B8E-B0E1-7B42ABEFE0D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PuzzleQTest", "PuzzleQTest\PuzzleQTest.csproj", "{386EFB47-B4C3-4B8E-B0E1-7B42ABEFE0D6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PuzzleQWeb", "PuzzleQWeb\PuzzleQWeb.csproj", "{22C6069D-D18C-4A7F-A35E-0D338FDF356A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{386EFB47-B4C3-4B8E-B0E1-7B42ABEFE0D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{386EFB47-B4C3-4B8E-B0E1-7B42ABEFE0D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{386EFB47-B4C3-4B8E-B0E1-7B42ABEFE0D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22C6069D-D18C-4A7F-A35E-0D338FDF356A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22C6069D-D18C-4A7F-A35E-0D338FDF356A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22C6069D-D18C-4A7F-A35E-0D338FDF356A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22C6069D-D18C-4A7F-A35E-0D338FDF356A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

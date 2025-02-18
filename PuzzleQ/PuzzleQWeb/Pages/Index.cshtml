@@ -1,0 +1,20 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-1 fw-bold">The PuzzleQ Game</h1>
+    <h4>Created by: E. Grunwald</h4>
+    <p class="border border-light rounded-2 p-3 fs-5">
+        The player is presented with a 3x3 grid of empty spots. When the player presses start, all spots except
+        for one will be filled with a random part of a photo. The photos will then be able to be manipulated and
+        moved around to create one big picture. Once the player has successfully placed all the parts of the
+        photo in the right spot, the player wins.
+        <br />
+        Click 
+        <a asp-page="/PuzzleQ">here</a>
+        to Begin Playing!
+    </p>
+</div>
