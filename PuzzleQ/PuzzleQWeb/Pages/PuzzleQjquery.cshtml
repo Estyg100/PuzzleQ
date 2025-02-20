@@ -1,0 +1,376 @@
+﻿@page
+@model PuzzleQWeb.Pages.PuzzleQjqueryModel
+@{
+
+}
+
+<div class="row">
+    <p id="msg" class="text-start text-white fw-bold border border-3 border-light rounded-2 p-2"></p>
+</div>
+<div class="row">
+    <button id="btnStart" class="col-2 btn btn-outline-light me-1 fw-bold shadow">Start</button>
+    <button id="btnDown" class="col-1 btn btn-outline-light me-1 fw-bold shadow">&#x21e3;</button>
+    <button id="btnUp" class="col-1 btn btn-outline-light me-1 fw-bold shadow">&#x21e1;</button>
+    <button id="btnLeft" class="col-1 btn btn-outline-light me-1 fw-bold shadow">&#x21e0;</button>
+    <button id="btnRight" class="col-1 btn btn-outline-light me-1 fw-bold shadow">&#x21e2;</button>
+    <div class="col ms-auto text-end">
+        <div class="d-inline-block mt-2">Level:</div>
+        <div id="levelNum" class="d-inline-block mt-2"></div>
+    </div>
+    <div class="col ms-auto text-end">
+        <div class="d-inline-block mt-2">Score:</div>
+        <div id="scoreNum" class="d-inline-block mt-2"></div>
+    </div>
+</div>
+<hr />
+<div class="container d-flex justify-content-center">
+    <div class="row g-1">
+        <div class="col-4">
+            <div class="ratio ratio-1x1">
+                <img src="" class="img-fluid spot hidden" alt="img 1">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="ratio ratio-1x1">
+                <img src="" class="img-fluid spot hidden" alt="img 2">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="ratio ratio-1x1">
+                <img src="" class="img-fluid spot hidden" alt="img 3">
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="ratio ratio-1x1">
+                <img src="" class="img-fluid spot hidden" alt="img 4">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="ratio ratio-1x1">
+                <img src="" class="img-fluid spot hidden" alt="img 5">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="ratio ratio-1x1">
+                <img src="" class="img-fluid spot hidden" alt="img 6">
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="ratio ratio-1x1">
+                <img src="" class="img-fluid spot hidden" alt="img 7">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="ratio ratio-1x1">
+                <img src="" class="img-fluid spot hidden" alt="img 8">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="ratio ratio-1x1 ">
+                <img src="" class="img-fluid spot hidden" alt="img 9">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        let msg;
+        let Status;
+        let gameStatus;
+        let Levels;
+        let currentLevel;
+        let score = 0;
+        let allSpots;
+        let canMoveRightResults;
+        let canMoveRightSource;
+        let canMoveLeftResults;
+        let canMoveLeftSource;
+        let canMoveUpResults;
+        let canMoveUpSource;
+        let canMoveDownResults;
+        let canMoveDownSource;
+        const level1Images = [];
+        const level2Images = [];
+        const level3Images = [];
+        let levelNum;
+        let scoreNum;
+        let showLevel;
+        let showScore;
+
+        $(document).ready(function () {
+            msg = $("#msg");
+            msg.text("Click Start to Begin Playing");
+            Status = Object.freeze({
+                Not_Started: 'not_started',
+                Playing: 'playing',
+                Winner: 'winner'
+            });
+            gameStatus = Status.Not_Started;
+            Levels = Object.freeze({
+                level1: '1',
+                level2: '2',
+                level3: '3'
+            });
+            currentLevel = Levels.level1;
+            allSpots = [...$(".spot")];
+            canMoveRightResults = [allSpots[1], allSpots[2], allSpots[4], allSpots[5], allSpots[7], allSpots[8]];
+            canMoveRightSource = [allSpots[0], allSpots[1], allSpots[3], allSpots[4], allSpots[6], allSpots[7]];
+            canMoveLeftResults = [allSpots[1], allSpots[0], allSpots[4], allSpots[3], allSpots[7], allSpots[6]];
+            canMoveLeftSource = [allSpots[2], allSpots[1], allSpots[5], allSpots[4], allSpots[8], allSpots[7]];
+            canMoveUpResults = [allSpots[3], allSpots[0], allSpots[4], allSpots[1], allSpots[5], allSpots[2]];
+            canMoveUpSource = [allSpots[6], allSpots[3], allSpots[7], allSpots[4], allSpots[8], allSpots[5]];
+            canMoveDownResults = [allSpots[3], allSpots[6], allSpots[4], allSpots[7], allSpots[5], allSpots[8]];
+            canMoveDownSource = [allSpots[0], allSpots[3], allSpots[1], allSpots[4], allSpots[2], allSpots[5]];
+            setupImageLists();
+            levelNum = $("#levelNum");
+            scoreNum = $("#scoreNum");
+            showLevel = () => levelNum.text(currentLevel);
+            showScore = () => scoreNum.text(score);
+            $("#btnStart").click(startGame);
+            $("#btnUp").click(moveUp);
+            $("#btnDown").click(moveDown);
+            $("#btnLeft").click(moveLeft);
+            $("#btnRight").click(moveRight);
+        });
+
+        function startGame() {
+            $(allSpots).attr("src", "");
+            showLevel();
+            if (gameStatus == Status.Not_Started) {
+                showScore();
+            }
+            setGameAttributes();
+            shuffleImages();
+            setMessage();
+        }
+
+        function shuffleImages() {
+            getCorrectLayout();
+            let r = Math.floor(Math.random() * (500 - 250 + 1)) + 250;
+            let originalCheckWinner = setWinnerIfTrue;
+            setWinnerIfTrue = function () { };
+            for (let i = 1; i < r; i++) {
+                takeRandomMove();
+            }
+            getSpot9Blank();
+            setWinnerIfTrue = originalCheckWinner;
+        }
+
+
+        function getCorrectLayout() {
+            let list = [];
+            switch (currentLevel) {
+                case Levels.level1:
+                    list = level1Images;
+                    break;
+                case Levels.level2:
+                    list = level2Images;
+                    break;
+                case Levels.level3:
+                    list = level3Images;
+                    break;
+            }
+            allSpots.forEach(s => s.src = list[allSpots.indexOf(s)]);
+            allSpots[8].removeAttribute("src");
+            $(allSpots).removeClass("hidden");
+        }
+
+        function takeRandomMove() {
+            let r = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
+            switch (r) {
+                case 1:
+                    moveRight();
+                    break;
+                case 2:
+                    moveLeft();
+                    break;
+                case 3:
+                    moveUp();
+                    break;
+                case 4:
+                    moveDown();
+                    break;
+            }
+        }
+
+        function takeMove(listresults, listsource) {
+            for (let i = 0; i < listresults.length; i++) {
+                movePhoto(listresults[i], listresults, listsource);
+            }
+        }
+
+        function movePhoto(spotresults, listresults, listsource) {
+            if (!$(spotresults).attr("src")) {
+                let n = listresults.indexOf(spotresults);
+                let spotsource = listsource[n];
+                $(spotresults).attr("src", $(spotsource).attr("src"));
+                $(spotsource).removeAttr("src");
+                $(spotresults).removeClass("hidden");
+                $(spotsource).addClass("hidden");
+            }
+        }
+
+        function moveRight() {
+            takeMove(canMoveRightResults, canMoveRightSource);
+            setWinnerIfTrue();
+        }
+
+        function moveLeft() {
+            takeMove(canMoveLeftResults, canMoveLeftSource);
+            setWinnerIfTrue();
+        }
+
+        function moveUp() {
+            takeMove(canMoveUpResults, canMoveUpSource);
+            setWinnerIfTrue();
+        }
+
+        function moveDown() {
+            takeMove(canMoveDownResults, canMoveDownSource);
+            setWinnerIfTrue();
+        }
+
+        function getSpot9Blank() {
+            if (allSpots[0].src == "") {
+                moveUp();
+                moveUp();
+                moveLeft();
+                moveLeft();
+            }
+            else if (allSpots[1].src == "") {
+                moveUp();
+                moveUp();
+                moveLeft();
+            }
+            else if (allSpots[2].src == "") {
+                moveUp();
+                moveUp();
+            }
+            else if (allSpots[3].src == "") {
+                moveUp();
+                moveLeft();
+                moveLeft();
+            }
+            else if (allSpots[4].src == "") {
+                moveUp();
+                moveLeft();
+            }
+            else if (allSpots[5].src == "") {
+                moveUp();
+            }
+            else if (allSpots[6].src == "") {
+                moveLeft();
+                moveLeft();
+            }
+            else if (allSpots[7].src == "") {
+                moveLeft();
+            }
+        }
+
+        function setGameAttributes() {
+            if (gameStatus == Status.Playing) {
+                score--;
+                showScore();
+            }
+            else {
+                gameStatus = Status.Playing;
+            }
+        }
+
+        function setMessage() {
+            if (gameStatus == Status.Playing) {
+                msg.text("Try to complete the picture by moving the photos around using the arrow buttons. You can click start anytime to get a new layout, but your score will decrease.");
+            }
+            else if (gameStatus == Status.Winner) {
+                if (currentLevel == Levels.level3) {
+                    msg.text("YOU WON! CONGRATULATIONS! YOU HAVE SUCCESSFULLY COMPLETED ALL THREE LEVELS! Click Start to begin from level 1 again.");
+                }
+                else if (currentLevel == Levels.level2) {
+                    msg.text(`YOU WON! HOORAY! Click Start to proceed to level ${parseInt(currentLevel) + 1}.`);
+                }
+                else if (currentLevel == Levels.level1) {
+                    msg.text(`YOU WON! HOORAY! Click Start to proceed to level ${parseInt(currentLevel) + 1}.`);
+                }
+            }
+        }
+
+        function setupImageLists() {
+            for (let i = 1; i < 10; i++) {
+                level1Images.push(`/images/bee${i}.jpg`);
+                level2Images.push(`/images/cherryblossom${i}.jpg`);
+                level3Images.push(`/images/colorfuldesign${i}.jpg`);
+            }
+        }
+
+        // function showLevel() {
+        //     levelNum.text(currentLevel);
+        // }
+
+        // function showScore() {
+        //     scoreNum.text(score);
+        // }
+
+        function detectWinner() {
+            let winner = false;
+            let lst = [];
+            switch (currentLevel) {
+                case Levels.level1:
+                    lst = level1Images;
+                    break;
+                case Levels.level2:
+                    lst = level2Images;
+                    break;
+                case Levels.level3:
+                    lst = level3Images;
+                    break;
+            }
+            if (
+                allSpots[0].src.endsWith(lst[0]) &&
+                allSpots[1].src.endsWith(lst[1]) &&
+                allSpots[2].src.endsWith(lst[2]) &&
+                allSpots[3].src.endsWith(lst[3]) &&
+                allSpots[4].src.endsWith(lst[4]) &&
+                allSpots[5].src.endsWith(lst[5]) &&
+                allSpots[6].src.endsWith(lst[6]) &&
+                allSpots[7].src.endsWith(lst[7])
+            ) {
+                winner = true;
+            }
+
+            return winner;
+        }
+
+        function setWinnerIfTrue() {
+            let winner = detectWinner();
+            if (winner) {
+                gameStatus = Status.Winner;
+                score++;
+                showScore();
+                switch (currentLevel) {
+                    case Levels.level1:
+                        allSpots[8].src = level1Images[8];
+                        break;
+                    case Levels.level2:
+                        allSpots[8].src = level2Images[8];
+                        break;
+                    case Levels.level3:
+                        allSpots[8].src = level3Images[8];
+                        break;
+                }
+                allSpots[8].classList.remove("hidden");
+                setMessage();
+                if (currentLevel == Levels.level1) {
+                    currentLevel = Levels.level2;
+                } else if (currentLevel == Levels.level2) {
+                    currentLevel = Levels.level3;
+                } else {
+                    currentLevel = Levels.level1;
+                }
+            }
+        }
+
+    </script>
+}
